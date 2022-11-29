@@ -16,29 +16,6 @@ Possono essere scelti singolarmente (es. solo numeri) oppure possono essere comb
 Milestone 4 (BONUS - OPZIONALE)
 Invece di visualizzare la password nella index, effettuare un redirect ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la password da mostrare all’utente.
 -->
-<?php 
-
-    $output = "";
-    $passwordLength = $_GET["length"];
-    echo $passwordLength;
-
-    for ($i = 0; $i <= $passwordLength; $i++) {
-        $rng = rand(1,4);
-        if($rng == 1){
-            $output .= rand(0,9);
-        } else if($rng == 2){
-            $output .= chr(rand(65,90));
-        } else if($rng == 3){
-            $output .= $letter = chr(rand(97,122));
-        } else if($rng == 4){
-            $output .= chr(rand(33,38));;
-        }
-      };
-
-      echo "<hr>";
-      echo $output;
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,24 +28,12 @@ Invece di visualizzare la password nella index, effettuare un redirect ad una pa
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form action="index.php">
+    <form action="functions.php">
 
         <p>Input desired length of Password</p><input type="text" name="length" id="length"></input>
         
         <div class="character-repetition d-flex justify-content-between">
-        <!--
-            <p>Allow repetition of characters?</p>
-        
-            <div class="d-flex flex-column">
-                <div class="radio-wrapper">
-                    <input type="radio" name="allowRepetition" id="allowRepetition" value="yes">
-                </div>
 
-                <div class="radio-wrapper">
-                    <input type="radio" name="allowRepetition" id="allowRepetition" value="no">
-                </div>
-            </div>
-        -->
             </div>
         <button type="submit">Submit</button>
 
